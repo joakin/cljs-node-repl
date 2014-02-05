@@ -3,14 +3,16 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2138"]]
+                 [org.clojure/clojurescript "0.0-2138"]
+                 [org.bodil/cljs-noderepl "0.1.11"]
+                 [lein-light-nrepl "0.0.15"]
+                 ]
 
   :plugins [[lein-cljsbuild "1.0.1"]
-            [org.bodil/cljs-noderepl "0.1.10"]]
+            [org.bodil/lein-noderepl "0.1.10"]
+            ]
 
-  :source-paths ["src"]
-
-;;   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl lighttable.nrepl.handler/lighttable-ops]}
 
   :cljsbuild {
     :builds [{:id "cljs-node-lighttable"
